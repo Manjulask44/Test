@@ -1,1 +1,239 @@
-tesing the details
+1. Difference between git fetch and git pull
+Answer: Git pull
+Bring the changes from remote repository and merges to local 
+repo automatically.
+Git pull user@servername: /home/./path/central_repo
+
+Git fetch
+Bring the changes from remote repo and stores it on a separate 
+branch, you can review the changes and merge it to local repo if it is 
+required.
+Git fetch user@servername:/home.//./central_repo/
+
+2. What is Adcall in route53.
+Answer: {{{In AWS Route 53, there is no direct feature or term called "Adcall". However, if you are referring to something specific within Route 53, it might be related to one  }}}
+API Calls in Route 53 (Adcall might mean "API Call")
+AWS Route 53 provides a set of API calls that allow you to interact with domain registration, DNS management, and health checks.
+
+3. What is the difference between security groups and NACL?
+Statefulness:
+Security Groups are stateful, meaning if an inbound rule allows traffic, the response is automatically allowed without needing an explicit outbound rule.
+NACLs are stateless, so you must define separate inbound and outbound rules.
+
+Rule Evaluation:
+Security Groups evaluate all rules and apply the most permissive.
+NACLs evaluate rules sequentially (lowest to highest rule number) and stop at the first match.
+
+Scope:
+Security Groups apply to individual EC2 instances.
+NACLs apply to entire subnets.
+
+Allow vs. Deny:
+Security Groups allow only "Allow" rules (no deny option).
+NACLs support both "Allow" and "Deny" rules.
+
+4. what is git conflict?
+Answer: Merging Conflict Will occur when the same peace of code is changed on 2 
+different branches, when we try to merge those two branches, 
+then merging conflict will occur,
+ To resolve this issue, I don‘t know whose change should I take 
+to merge , so I contact developers changes the code, person 
+who modified code of branch1 and branch2. Then they will 
+decide and tell us whose changes should I take into merge. Then I take that change and I commit it.
+
+5. What is git rebate.
+Answer: git rebase ---> it's nothing but merge. one branch will get added to tip of another branch.
+you can squash and merge versions to another branch.
+
+git rebase branch
+
+6. What is Multibranch pipeline.?
+Answer: Multi-branch Pipeline: A multi-branch pipeline is an extension of pipeline job, It has way of automatically creating jenkins pipeline based on the source control 
+branches, Jenkins can then automatically discover new branches in the source control and it can create pipeline for that branch.
+
+7. How does the Jenkins pipeline will be triggered.
+Answer: 1.Build Periodically :
+       if u want to shedule or build periodically that is a particular interval of time then we can select
+	   build periodically option from the build triggers 
+	   commits the changes when trigger at particular time ex:evey monady it will build
+  
+2.POLL SCM :
+       POLL SCM periodically polls the source code management tool to check whether changes were made 
+	   (i.e new commits) and builds the project if new commits are pushed
+	   you will the commit the changes now it build in that period,it will build trigger at the particular period once 
+	   we are commit done any changes
+3.GitHub Webhook Trigger :
+      GitHub Webhooks in Jenkins are used to trigger the build  as soon as a developer commits somethings to
+	  the branch 
+	  we dont specify the time it will trigger when there is new commit
+Webhook: A webhook is the mechanism to automatically trigger the build of jenkins project in response to a commit pushed to git repository
+
+8. Difference between IAM role and policy.
+Answer: 
+Difference Between IAM Role and IAM Policy in AWS
+AWS IAM (Identity and Access Management) enables you to manage permissions for AWS resources. IAM Roles and IAM Policies serve different purposes but work together to control access.
+
+Feature	                                 IAM Role                          	              IAM Policy
+Definition	    An AWS identity with permissions assigned to be                       A document that defines permissions (Allow/Deny) for AWS resources.
+                    assumed by users, services, or applications.             
+Purpose       	Grants temporary permissions to AWS services or external users.	      Defines what actions are allowed or denied on AWS resources.
+Attachment	    Can be attached to AWS services (e.g., EC2, Lambda) or users.	        Can be attached to IAM Users, Groups, or Roles.
+Use Case       	Allow EC2 to assume a role to access S3.	                            Define read-only or full access permissions for a user or role.
+Inheritance	    IAM Roles assume permissions via policies attached to them.     	   IAM Policies define permissions but do not provide authentication.
+
+
+9. How to restart the Jenkins from the URL.
+Answer:  Restarting Jenkins from the URL
+You can restart Jenkins using its built-in restart URLs if you have administrator privileges. 
+Safe Restart:
+This ensures that Jenkins waits for all running jobs to complete before restarting.
+http://localhost:8080/safeRestart
+
+////or////
+Steps to Restart Jenkins via URL
+Open a web browser.
+Enter the Jenkins restart URL (/safeRestart or /restart).
+If authentication is required, log in with an admin user.
+Jenkins will restart.
+
+10. What is git flow.
+Answer: Git Flow is a branching model for Git that defines a structured workflow for collaboration and version control. It is designed to handle feature development, releases, and hotfixes efficiently.
+Git Flow Workflow Overview
+Git Flow introduces the following branching strategy:
+
+1. Main Branches
+main (or master)
+Contains production-ready code.
+Every commit in this branch is a stable release.
+develop
+Integrates new features.
+Serves as a base for feature branches.
+Contains the latest merged code for the next release.
+2. Supporting Branches
+feature/*
+
+Used for developing new features.
+Branches off from develop.
+Merges back into develop when the feature is complete.
+release/*
+
+Used to prepare a new production release.
+Branches off from develop.
+Allows final bug fixes and documentation updates before merging into main and develop.
+hotfix/*
+
+Used for urgent fixes to production.
+Branches off from main.
+Merges back into main and develop after fixing.
+
+11. What is the difference between PV and PVC.
+Answer: 
+Feature	                       Persistent Volume (PV)	                                             Persistent Volume Claim (PVC)
+Definition	                A storage resource provisioned in the cluster.	                        A request for storage by a Pod.
+Created By	                Cluster administrator (manually or dynamically via StorageClass).      	Developers or applications needing storage.
+Binding             	      PVs exist before PVCs and are bound to PVCs.	                          PVCs request storage, and Kubernetes binds them to matching PVs.
+Size	                      Defined in the PV spec (capacity.storage).	                            Defined in the PVC request (resources.requests.storage).
+Lifecycle          	        Independent of Pod lifecycle; can be reused.	                          Tied to the Pod lifecycle; deleted if the Pod is deleted (unless retained).
+Example Storage Backends    AWS EBS,Azure Disks,Google Persistent Disks,NFS,Local storage.         	Claims resources from an existing PV or dynamically provisions storage.
+
+12. How to configure PV and PVC.
+Answer: 	persistent volume (pv)
+		- It is a storage space which can be claimend to any pod in the cluster.
+		- These are cluster level object and not bound to namespace.
+		
+		we can control the access to volume in 3 ways:
+			- ReadOnlyMany(ROX) allows being mounted by multiple nodes in read-only mode.
+			- ReadWriteOnce(RWO) allows being mounted by a single node in read-write mode.
+			- ReadWriteMany(RWX) allows multiple nodes to be mounted in read-write mode.
+		
+		Note: If we need write access to volume from multiple pods scheduled in mulitple nodes then use ReadWrtieMany
+
+
+	Persistent volume claim (pvc)
+		- This is the object used to claim / mount the required amount of storage from persistent volume to any 
+		  pod in the cluster.
+		- After we create the PersistentVolumeClaim, the Kubernetes control plane looks for a PersistentVolume that 
+		  satisfies the claim's requirements. 
+		- If the control plane finds a suitable PersistentVolume with the same StorageClass, it binds the claim to the volume.
+
+13. What is S3 Bucket.
+Answer: Amazon S3 has a simple web services interface that you can use to store and retrieve any amount of data, at any time, from anywhere on the web.
+
+14. What is the use of kube-proxy.
+kube service proxy 
+			(in k8s service means networking)
+			- Service proxy runs on each and every worker node and is responsble for watching API 
+			  server for any changes in service configuration (any network related configuration).	
+			- Based on the configuration service proxy manages the entire network of worker node.
+
+15. What is TTL values in route53.
+Answer: Time to live (TTL) or hop limit is a mechanism which limits the lifespan or lifetime of data in a computer or network. ... In computer networking, TTL prevents a data packet from circulating indefinitely. In computing applications, TTL is commonly used to improve the performance and manage the caching of data.
+
+16. What is the default port of the Jenkins? Can we change the port number.
+Answer: The default port of Jenkins is 8080 and we can the port num for this Open the Jenkins configuration file: "sudo vi /etc/sysconfig/Jenkins"
+ Find the line: JENKINS_PORT="8080" ,,,,
+Change 8080 to your desired port (e.g., 9090): save the file and restart the Jenkins server
+
+17. What is Autoscaling.
+Answer: AWS Auto Scaling monitors your applications and automatically adjusts capacity to
+maintain steady, predictable performance at the lowest possible cost.
+
+18. Have you worked on EKS?
+Answer: Yes
+
+19. How to access the internet from private subnet.
+Answer: A Private Subnet in AWS does not have direct internet access. However, you can provide internet access using NAT Gateway, NAT Instance.
+
+20. What is the jump server(Bastion Host)? Why do you use it.?
+Answer: A Jump Server, also known as a Bastion Host, is a highly secured server that acts as a gateway to access instances in a private network. It allows administrators to securely connect to instances in a private subnet while minimizing exposure to the public internet.
+
+Why Use a Jump Server?
+✅ Secure Access to Private Instances
+Instances in private subnets cannot be directly accessed from the internet.
+A Bastion Host provides controlled and logged access.
+
+✅ Minimizes Public Exposure
+Instead of exposing all instances to the internet, only the Bastion Host has a public IP.
+
+✅ Stronger Security Control
+You can enforce Multi-Factor Authentication (MFA).
+Use restricted IP access (Security Groups or Firewall Rules).
+
+✅ Centralized Access Logging
+All SSH or RDP connections go through a single monitored server.
+Can be integrated with CloudTrail, AWS GuardDuty, or SIEM for logging.
+
+21. What is chmod.
+Answer: chmod command is used to change the mode of file 
+
+22. What is chown.
+Answer: chown command is used to change the owner of file
+
+23. How do you change the ownership of a file?
+Answer: chown <username> <file_name> --> To change owner of a
+file
+
+24. What is grep and egrep? What is the difference between them and give a example.
+Answer: grep - It is used to search for a string inside a file
+        grep "pattern" filename
+egrep:egrep (Extended grep) is equivalent to grep -E.
+It supports Extended Regular Expressions (ERE)
+
+Feature                        	grep                      	egrep (grep -E)
+Regular Expressions Used	    Basic (BRE)	                 Extended (ERE)
+OR Operator (`	               `)                         	grep "error|fail"
+One or More (+)	              grep "error\+"	              egrep "error+"
+Zero or One (?)	               grep "error\?"	              egrep "error?"
+Grouping (())	                grep "\(error\)"	            egrep "(error)"
+Usage	                        More restrictive syntax	      More powerful, flexible syntax
+
+
+ 
+25. How do you list the files before 7 days.
+Answer:  find . -type f -mtime +7
+
+26. What is the command or cli that is used to list the Jenkins job.
+Answer: Jenkins CLI	java -jar jenkins-cli.jar -s http://<JENKINS_URL> list-jobs
+        SSH CLI	ssh -l admin -p 2222 <JENKINS_URL> list-jobs
+
+
