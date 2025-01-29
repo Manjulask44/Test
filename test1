@@ -11,7 +11,8 @@ required.
 Git fetch user@servername:/home.//./central_repo/
 
 2. What is Adcall in route53.
-Answer: {{{In AWS Route 53, there is no direct feature or term called "Adcall". However, if you are referring to something specific within Route 53, it might be related to one  }}}
+Answer: {{{In AWS Route 53, there is no direct feature or term called "Adcall". However, if you are referring to 
+        something specific within Route 53, it might be related to one  }}}
 API Calls in Route 53 (Adcall might mean "API Call")
 AWS Route 53 provides a set of API calls that allow you to interact with domain registration, DNS management, and health checks.
 
@@ -48,8 +49,8 @@ you can squash and merge versions to another branch.
 git rebase branch
 
 6. What is Multibranch pipeline.?
-Answer: Multi-branch Pipeline: A multi-branch pipeline is an extension of pipeline job, It has way of automatically creating jenkins pipeline based on the source control 
-branches, Jenkins can then automatically discover new branches in the source control and it can create pipeline for that branch.
+Answer: Multi-branch Pipeline: A multi-branch pipeline is an extension of pipeline job, It has way of automatically creating jenkins pipeline
+based on the source control branches, Jenkins can then automatically discover new branches in the source control and it can create pipeline for that branch.
 
 7. How does the Jenkins pipeline will be triggered.
 Answer: 1.Build Periodically :
@@ -71,15 +72,16 @@ Webhook: A webhook is the mechanism to automatically trigger the build of jenkin
 8. Difference between IAM role and policy.
 Answer: 
 Difference Between IAM Role and IAM Policy in AWS
-AWS IAM (Identity and Access Management) enables you to manage permissions for AWS resources. IAM Roles and IAM Policies serve different purposes but work together to control access.
+AWS IAM (Identity and Access Management) enables you to manage permissions for AWS resources. IAM Roles and IAM Policies serve different purposes but 
+work together to control access.
 
 Feature	                                 IAM Role                          	              IAM Policy
-Definition	    An AWS identity with permissions assigned to be                       A document that defines permissions (Allow/Deny) for AWS resources.
+Definition	 An AWS identity with permissions assigned to be                        A document that defines permissions (Allow/Deny) for AWS resources.
                     assumed by users, services, or applications.             
-Purpose       	Grants temporary permissions to AWS services or external users.	      Defines what actions are allowed or denied on AWS resources.
-Attachment	    Can be attached to AWS services (e.g., EC2, Lambda) or users.	        Can be attached to IAM Users, Groups, or Roles.
-Use Case       	Allow EC2 to assume a role to access S3.	                            Define read-only or full access permissions for a user or role.
-Inheritance	    IAM Roles assume permissions via policies attached to them.     	   IAM Policies define permissions but do not provide authentication.
+Purpose        	 Grants temporary permissions to AWS services or external users.	Defines what actions are allowed or denied on AWS resources.
+Attachment	 Can be attached to AWS services (e.g., EC2, Lambda) or users.	        Can be attached to IAM Users, Groups, or Roles.
+Use Case       	 Allow EC2 to assume a role to access S3.	                        Define read-only or full access permissions for a user or role.
+Inheritance	 IAM Roles assume permissions via policies attached to them.     	IAM Policies define permissions but do not provide authentication.
 
 
 9. How to restart the Jenkins from the URL.
@@ -97,7 +99,8 @@ If authentication is required, log in with an admin user.
 Jenkins will restart.
 
 10. What is git flow.
-Answer: Git Flow is a branching model for Git that defines a structured workflow for collaboration and version control. It is designed to handle feature development, releases, and hotfixes efficiently.
+Answer: Git Flow is a branching model for Git that defines a structured workflow for collaboration and version control. 
+        It is designed to handle feature development, releases, and hotfixes efficiently.
 Git Flow Workflow Overview
 Git Flow introduces the following branching strategy:
 
@@ -129,12 +132,12 @@ Merges back into main and develop after fixing.
 11. What is the difference between PV and PVC.
 Answer: 
 Feature	                       Persistent Volume (PV)	                                             Persistent Volume Claim (PVC)
-Definition	                A storage resource provisioned in the cluster.	                        A request for storage by a Pod.
-Created By	                Cluster administrator (manually or dynamically via StorageClass).      	Developers or applications needing storage.
-Binding             	      PVs exist before PVCs and are bound to PVCs.	                          PVCs request storage, and Kubernetes binds them to matching PVs.
-Size	                      Defined in the PV spec (capacity.storage).	                            Defined in the PVC request (resources.requests.storage).
-Lifecycle          	        Independent of Pod lifecycle; can be reused.	                          Tied to the Pod lifecycle; deleted if the Pod is deleted (unless retained).
-Example Storage Backends    AWS EBS,Azure Disks,Google Persistent Disks,NFS,Local storage.         	Claims resources from an existing PV or dynamically provisions storage.
+Definition	           A storage resource provisioned in the cluster.	                A request for storage by a Pod.
+Created By	           Cluster administrator (manually or dynamically via StorageClass).    Developers or applications needing storage.
+Binding             	   PVs exist before PVCs and are bound to PVCs.	                        PVCs request storage, and Kubernetes binds them to matching PVs.
+Size	                   Defined in the PV spec (capacity.storage).	                        Defined in the PVC request (resources.requests.storage).
+Lifecycle          	   Independent of Pod lifecycle; can be reused.	                        Tied to the Pod lifecycle; deleted if the Pod is deleted (unless retained).
+Example Storage Backends   AWS EBS,Azure Disks,Google Persistent Disks,NFS,Local storage.       Claims resources from an existing PV or dynamically provisions storage.
 
 12. How to configure PV and PVC.
 Answer: 	persistent volume (pv)
@@ -167,7 +170,9 @@ kube service proxy
 			- Based on the configuration service proxy manages the entire network of worker node.
 
 15. What is TTL values in route53.
-Answer: Time to live (TTL) or hop limit is a mechanism which limits the lifespan or lifetime of data in a computer or network. ... In computer networking, TTL prevents a data packet from circulating indefinitely. In computing applications, TTL is commonly used to improve the performance and manage the caching of data.
+Answer: Time to live (TTL) or hop limit is a mechanism which limits the lifespan or lifetime of data in a computer or network. ... 
+        In computer networking, TTL prevents a data packet from circulating indefinitely. In computing applications,
+        TTL is commonly used to improve the performance and manage the caching of data.
 
 16. What is the default port of the Jenkins? Can we change the port number.
 Answer: The default port of Jenkins is 8080 and we can the port num for this Open the Jenkins configuration file: "sudo vi /etc/sysconfig/Jenkins"
@@ -185,7 +190,8 @@ Answer: Yes
 Answer: A Private Subnet in AWS does not have direct internet access. However, you can provide internet access using NAT Gateway, NAT Instance.
 
 20. What is the jump server(Bastion Host)? Why do you use it.?
-Answer: A Jump Server, also known as a Bastion Host, is a highly secured server that acts as a gateway to access instances in a private network. It allows administrators to securely connect to instances in a private subnet while minimizing exposure to the public internet.
+Answer: A Jump Server, also known as a Bastion Host, is a highly secured server that acts as a gateway to access instances in a private network.
+        It allows administrators to securely connect to instances in a private subnet while minimizing exposure to the public internet.
 
 Why Use a Jump Server?
 ✅ Secure Access to Private Instances
@@ -220,12 +226,12 @@ egrep:egrep (Extended grep) is equivalent to grep -E.
 It supports Extended Regular Expressions (ERE)
 
 Feature                        	grep                      	egrep (grep -E)
-Regular Expressions Used	    Basic (BRE)	                 Extended (ERE)
-OR Operator (`	               `)                         	grep "error|fail"
-One or More (+)	              grep "error\+"	              egrep "error+"
-Zero or One (?)	               grep "error\?"	              egrep "error?"
-Grouping (())	                grep "\(error\)"	            egrep "(error)"
-Usage	                        More restrictive syntax	      More powerful, flexible syntax
+Regular Expressions Used     Basic (BRE)	             Extended (ERE)
+OR Operator (`	               `)                            grep "error|fail"
+One or More (+)	             grep "error\+"	             egrep "error+"
+Zero or One (?)	             grep "error\?"	             egrep "error?"
+Grouping (())	             grep "\(error\)"	             egrep "(error)"
+Usage	                     More restrictive syntax	     More powerful, flexible syntax
 
 
  
